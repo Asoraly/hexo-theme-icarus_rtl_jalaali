@@ -25,7 +25,7 @@ $header-block-right
     position: relative
     #logo
         @extend $header-block
-        @extend $header-block-left
+        @extend $header-block-right
         display: inline-block
         .logo
             margin-right: 5px
@@ -67,7 +67,7 @@ $header-block-right
 
 #main-nav
     @extend $header-block
-    @extend $header-block-left
+    @extend $header-block-right
     @media mq-mobile
         display: none
     @media mq-mini
@@ -124,7 +124,7 @@ $nav-link
     @media mq-mini
         display: none
     @extend $header-block
-    @extend $header-block-right
+    @extend $header-block-left
     .search-form
         position: relative
         .search-form-input
