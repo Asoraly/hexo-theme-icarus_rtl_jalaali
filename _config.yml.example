@@ -12,19 +12,19 @@ customize:
         enabled: true
         width: 40
         height: 40
-        url: images/logo.png
+        url: images/ghaseminya.png
     profile:
         enabled: true # Whether to show profile bar
-        avatar: css/images/avatar.png
+        avatar: css/images/ghaseminya.png
         gravatar: # Gravatar email address, if you enable Gravatar, your avatar config will be overriden
         author: Ghaseminya
         author_title: J2EE Developrt
-        location: Harbin, China
+        location: Iran
         follow: https://github.com/ghaseminya/
     highlight: monokai
     sidebar: left # sidebar position, options: left, right
     thumbnail: true # enable posts thumbnail, options: true, false
-    favicon: # path to favicon
+    favicon: css/images/ghaseminya.png # path to favicon
     social_links:
         github: https://github.com/ghaseminya/hexo-theme-icarus_rtl_jalaali
         twitter: /
