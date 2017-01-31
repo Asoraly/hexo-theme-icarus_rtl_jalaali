@@ -7,6 +7,6 @@
 npm install moment-jalaali
 
 
-![alt tag](https://raw.githubusercontent.com/username/projectname/master/timeline.png)
+![alt tag](https://raw.githubusercontent.com/ghaseminya/hexo-theme-icarus_rtl_jalaali/master/timeline.png)
 
 
