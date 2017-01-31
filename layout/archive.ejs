@@ -1,7 +1,7 @@
 <div class="timeline timeline-wrap">
     <% var last;
     page.posts.each(function(post, i) {
-        var year = post.date.year();
+        var year = jalaaliyear(post.date);
         if (last != year) {
             last = year; %>
             <div class="timeline-row timeline-row-major">
