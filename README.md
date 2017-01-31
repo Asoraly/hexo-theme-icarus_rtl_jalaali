@@ -1,62 +1,34 @@
-#Icarus
+###hexo-theme-icarus_rtl_jalaali
 
-### The blog theme you may fall in love with, coming to Hexo. [Preview](http://ppoffice.github.io/hexo-theme-icarus/)
-![](http://ppoffice.github.io/hexo-theme-icarus/gallery/preview.png "")
+##RTL Language and Jalaali Calendar support for ICARUS theme
 
-#### [View Documentation](https://github.com/ppoffice/hexo-theme-icarus/wiki)
-:star: It is strongly recommended that you read the docs before using Icarus.
+##1-Install moment-jalaali via npm in the root folder of you blog:
 
-## Features
+npm install moment-jalaali
 
-### Profile Sidebar
+##2-Add a Hexo helper script (like jalaali.js) to themes/icarus/scripts:
+/**
+* Moment.js Jalaali Helper
+* @description Jalaali Calendar Converter
+* @example
+*     <%- jalaali(date) %>
+*/
+var moment = require('moment-jalaali');
 
-A nice place to show yourself. You can add your own information in your site's `_config.yml`
+hexo.extend.helper.register('jalaali', function (date) {
+    return moment(date).format('jYYYY/jM/jD'); // You can change the date format
+});
 
-![](http://ppoffice.github.io/hexo-theme-icarus/gallery/profile.png "")
 
-### Self-hosted Insite Search Engine
-With the help of [Insight Search](https://github.com/ppoffice/hexo-theme-icarus/wiki/Search#insight-search), you can search anything inside your site without any third-party plugin.
+##3-Edit layout files to use this helper function to format your date. For example, you can edit themes/icarus/layout/common/post/date.ejs:
 
-![](http://ppoffice.github.io/hexo-theme-icarus/gallery/insight-search.png "")
 
-### Custom Comment Services
-Icarus supports several comment services, give you better choices to communicate with your readers.
-
-![](http://ppoffice.github.io/hexo-theme-icarus/gallery/custom-comments.png "")
-
-### Post Banner & Thumbnail
-
-Thanks to [atika](https://github.com/atika), you can now [add thumbnails or banners](https://github.com/ppoffice/hexo-theme-icarus/wiki/Theme#thumbnail) to every post to create better reading experience.
-
-### Responsive Layout
-
-Icarus knows on what screen size you are browsering the website, and reorganize the layout to fit your device.
-
-![](http://ppoffice.github.io/hexo-theme-icarus/gallery/responsive.jpg "")
-
-### Custom Categories & Tags Pages
-
-Get your categories and tags listed in single pages to make your blog more methodic.
-
-### lightgallery
-
-Icarus uses [lightgallery.js](https://sachinchoolur.github.io/lightgallery.js/) to showcase your photos. Just enable it in your configuration, and that's all!
-
-![](http://ppoffice.github.io/hexo-theme-icarus/gallery/lightgallery.jpg "")
-
-### Justified Gallery
-
-You can also use [justifiedgallery.js](http://miromannino.github.io/Justified-Gallery/) to display a photo grid within your posts. Just enable it in your configuration, and place your photos in a div with the class .justified-gallery
-
-### Sidebar
-
-Icarus provides 6 built-in widgets:
-
-- recent_posts
-- category
-- archives
-- tag
-- tagcloud
-- links
-
-All of them are enabled by default. You can edit them in `widget` setting.
+<% if (post.date) { %>
+    <div class="<%= class_name %>">
+        <i class="fa fa-calendar"></i>
+        <a href="<%- url_for(post.path) %>">
+-            <time datetime="<%= date_xml(post.date) %>" itemprop="datePublished"><%= date(post.date, date_format) %></time>
++            <time datetime="<%= date_xml(post.date) %>" itemprop="datePublished"><%= jalaali(post.date) %></time>
+        </a>
+    </div>
+<% } %>
